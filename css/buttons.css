@@ -1,0 +1,380 @@
+/*----------------------------------------------------------------------*/
+/*  White Button Outline
+/*----------------------------------------------------------------------*/
+
+.white-outline {
+    width: 100%;
+    border: none;
+    font-family: "Circular Std Medium";
+    font-size: 16px;
+    color: inherit;
+    background: rgba(255, 255, 255, 0); 
+    cursor: pointer;
+    padding: 20px;
+    display: block;
+    text-align: center;
+    outline: none;
+    position: relative;
+    border: 2px solid #fff;
+    border-radius: 4px;
+    color: #fff;
+    z-index: 1;
+    -webkit-transition: all 0.3s;
+       -moz-transition: all 0.3s;
+            transition: all 0.3s;
+}
+
+.white-outline:after {
+    content: '';
+    position: absolute;
+    z-index: -2;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+/* Standard Hover */
+
+.white-outline.standard:hover,
+.white-outline.standard:active {
+    color: #ff0a5a;
+    background: #fff;
+}
+
+/* Grow Up Hover */
+
+.white-outline.grow-up:after {
+    width: 100%;
+    height: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(255, 255, 255, 1);
+}
+
+.white-outline.grow-up:hover,
+.white-outline.grow-up:active {
+    color: #ff0a5a;
+}
+
+.white-outline.grow-up:hover:after,
+.white-outline.grow-up:active:after {
+    height: 100%;
+}
+
+/* Grow Down Hover */
+
+.white-outline.grow-down:after {
+    width: 100%;
+    height: 0;
+    top: 0;
+    left: 0;
+    background: rgba(255, 255, 255, 1);
+}
+
+.white-outline.grow-down:hover,
+.white-outline.grow-down:active {
+    color: #ff0a5a;
+}
+
+.white-outline.grow-down:hover:after,
+.white-outline.grow-down:active:after {
+    height: 100%;
+}
+
+/* Grow Left Hover */
+
+.white-outline.grow-left:after {
+    width: 0;
+    height: 100%;
+    top: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 1);
+}
+
+.white-outline.grow-left:hover,
+.white-outline.grow-left:active {
+    color: #ff0a5a;
+}
+
+.white-outline.grow-left:hover:after,
+.white-outline.grow-left:active:after {
+    width: 100%;
+}
+
+/* Grow Right Hover */
+
+.white-outline.grow-right:after {
+    width: 0;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(255, 255, 255, 1);
+}
+
+.white-outline.grow-right:hover,
+.white-outline.grow-right:active {
+    color: #ff0a5a;
+}
+
+.white-outline.grow-right:hover:after,
+.white-outline.grow-right:active:after {
+    width: 100%;
+}
+
+/* Grow Center Right and Left Hover */
+
+.grow-center-right-left {
+    overflow: hidden;
+}
+
+.grow-center-right-left:after {
+    width: 0;
+    height: 105%;
+    top: 50%;
+    left: 50%;
+    background: rgba(255, 255, 255, 1);
+    opacity: 0;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+       -moz-transform: translateX(-50%) translateY(-50%);
+        -ms-transform: translateX(-50%) translateY(-50%);
+            transform: translateX(-50%) translateY(-50%);
+}
+
+.grow-center-right-left:hover,
+.grow-center-right-left:active {
+    color: #ff0a5a;
+}
+
+.grow-center-right-left:hover:after,
+.grow-center-right-left:active:after {
+    width: 100%;
+    opacity: 1;
+}
+
+/* Grow Center Top and Bottom Hover */
+
+.grow-center-top-down {
+    overflow: hidden;
+}
+
+.grow-center-top-down:after {
+    width: 101%;
+    height: 0;
+    top: 50%;
+    left: 50%;
+    background: rgba(255, 255, 255, 1);
+    opacity: 0;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -ms-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.grow-center-top-down:hover,
+.grow-center-top-down:active {
+    color: #ff0a5a;
+}
+
+.grow-center-top-down:hover:after,
+.grow-center-top-down:active:after {
+    height: 105%;
+    opacity: 1;
+}
+
+/* Grow Center Diagonal Bottom Left and Top Right */
+
+.grow-cen-diag-tr-bl {
+    overflow: hidden;
+}
+
+.grow-cen-diag-tr-bl:after {
+    width: 100%;
+    height: 0;
+    top: 50%;
+    left: 50%;
+    background: rgba(255, 255, 255, 1);
+    opacity: 0;
+    -webkit-transform: translateX(-50%) translateY(-50%) rotate(45deg);
+       -moz-transform: translateX(-50%) translateY(-50%) rotate(45deg);
+        -ms-transform: translateX(-50%) translateY(-50%) rotate(45deg);
+            transform: translateX(-50%) translateY(-50%) rotate(45deg);
+}
+
+.grow-cen-diag-tr-bl:hover,
+.grow-cen-diag-tr-bl:active {
+    color: #ff0a5a;
+}
+
+.grow-cen-diag-tr-bl:hover:after,
+.grow-cen-diag-tr-bl:active:after {
+    height: 380%;
+    opacity: 1;
+}
+
+/* Grow Center Diagonal Top Left and Bottom Right */
+
+.grow-cen-diag-tl-br {
+    overflow: hidden;
+}
+
+.grow-cen-diag-tl-br:after {
+    width: 100%;
+    height: 0;
+    top: 50%;
+    left: 50%;
+    background: rgba(255, 255, 255, 1);
+    opacity: 0;
+    -webkit-transform: translateX(-50%) translateY(-50%) rotate(-45deg);
+    -moz-transform: translateX(-50%) translateY(-50%) rotate(-45deg);
+    -ms-transform: translateX(-50%) translateY(-50%) rotate(-45deg);
+    transform: translateX(-50%) translateY(-50%) rotate(-45deg);
+}
+
+.grow-cen-diag-tl-br:hover,
+.grow-cen-diag-tl-br:active {
+    color: #ff0a5a;
+}
+
+.grow-cen-diag-tl-br:hover:after,
+.grow-cen-diag-tl-br:active:after {
+    height: 380%;
+    opacity: 1;
+}
+
+
+/*----------------------------------------------------------------------*/
+/*  Solid Button Gradient
+/*----------------------------------------------------------------------*/
+
+.solid-gradient {
+    width: 100%;
+    border: none;
+    color: inherit;
+    background: #1446ff;
+    cursor: pointer;
+    padding: 25px 35px;
+    display: block;
+    box-shadow: 0px 20px 38px 0px rgba(0, 0, 0, 0.0), inset 200px 0px 300px -50px rgba(255,10,90,1);
+    text-align: left;
+    outline: none;
+    position: relative;
+    border-radius: 5px;
+    color: #fff;
+    z-index: 1;
+    -webkit-transition: all .3s;
+       -moz-transition: all .3s;
+            transition: all .3s;
+}
+
+.solid-gradient span.text {
+    font-family: "Circular Std Medium";
+    font-size: 20px;
+}
+
+.solid-gradient span.icon svg {
+    position: absolute;
+    top: 50%;
+    bottom: 50%;
+    transform: translate(-50%, -50%);
+    width: 25px;
+    right: 15px;
+}
+
+.solid-gradient span.center {
+    text-align: center;
+    width: 100%;
+    display: inline-block;
+}
+
+/* Standard Hover */
+
+.solid-gradient.standard:hover,
+.solid-gradient.standard:active {
+    color: #fff;
+    background: #2d5aff;
+    -webkit-box-shadow: inset 200px 0px 300px -119px rgba(0,0,0,0);
+       -moz-box-shadow: inset 200px 0px 300px -119px rgba(0,0,0,0);
+            box-shadow: 0px 20px 40px 0px rgba(0, 0, 0, 0.15), inset 200px 0px 300px -50px rgba(255,10,90,0);
+    transform: translate(0, -5px);
+}
+
+
+/*----------------------------------------------------------------------*/
+/*  Border Button Gradient
+/*----------------------------------------------------------------------*/
+
+.border-gradient {
+    display: block;
+    width: 100%;
+    position: relative;
+    padding: 25px 30px;
+    color: #111;
+    border-radius: 5px;
+    border: 0;
+    outline: none;
+    background: #1446ff;
+    box-shadow: 0px 20px 38px 0px rgba(0, 0, 0, 0.0), inset 200px 0px 300px -50px rgba(255,10,90,1);
+    z-index: 3;
+    cursor: pointer;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    transition: all .3s;
+}
+
+.border-gradient::before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: calc(100% - 6px);
+    height: calc(100% - 6px);
+    top: 3px;
+    left: 3px;
+    border-radius: 3px;
+    background: #fff;
+    box-shadow: 0px 20px 38px 0px rgba(0, 0, 0, 0.0), inset 200px 0px 300px -50px rgba(255,255,255,1);
+    z-index: 1;
+    cursor: pointer;
+    -webkit-transition: all .3s;
+       -moz-transition: all .3s;
+            transition: all .3s;
+}
+
+.border-gradient span.text {
+    font-family: "Circular Std Medium";
+    font-size: 20px;
+    display: block;
+    z-index: 999;
+    position: relative;
+    text-align: left;
+}
+
+.border-gradient span.center {
+    text-align: center;
+    width: 100%;
+    display: block;
+}
+
+.border-gradient span.icon svg {
+    position: absolute;
+    fill: #000;
+    top: 50%;
+    bottom: 50%;
+    transform: translate(-50%, -50%);
+    width: 25px;
+    right: 15px;
+    z-index: 999;
+}
+
+.border-gradient:hover::before { 
+    background: #1446ff;
+    box-shadow: 0px 20px 38px 0px rgba(0, 0, 0, 0.0), inset 200px 0px 300px -50px rgba(255,10,90,1); 
+}
+
+.border-gradient:hover {
+    color: #fff;
+    transform: translate(0, -5px);
+}
+
+.border-gradient:hover span.icon svg { fill: #fff; }
+
+

@@ -1,0 +1,41 @@
+/*--------------------------------------------------------------------------------------------------------------*/
+/*	HEADER IMAGE ANIMATION EFFECT
+	
+	The data-image-src needed for parallax.js is only editable at a img tag level, so only use this file on sub 
+	pages with a large header image, otherwise this effect will be applied to all images.
+
+/*--------------------------------------------------------------------------------------------------------------*/
+
+/*
+@-webkit-keyframes imageFade {
+	0% {
+		opacity: 1;
+		transform: scale(1.5);
+	}
+	100% {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+@keyframes imageFade {
+	0%  {
+		opacity: 1;
+		transform: scale(1.5);
+	}
+	100% {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+
+img {
+	opacity: 1;
+	animation: imageFade 600ms ease-in-out 3000ms forwards;
+}
+*/
+
+img {
+	z-index: 99999;
+}

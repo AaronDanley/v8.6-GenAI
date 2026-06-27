@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /pvt
+
+Sitemap: http://aarondanley.com/sitemap.xml
