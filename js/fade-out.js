@@ -94,12 +94,14 @@ window.addEventListener('focus', function () {
     }
 });
 
+var newLocation;
+
+function newpage() {
+    window.location = newLocation;
+}
+
 $('.fade-out').click(function (e) {
     e.preventDefault();
     newLocation = this.href;
     $('body').fadeOut('slow', newpage);
 });
-
-function newpage() {
-    window.location = newLocation;
-}
