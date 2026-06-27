@@ -234,7 +234,7 @@
     <div class="container">
         <div class="row">
             <div class="col-05">
-                <p>&copy; 2026 Aaron Danley. All Rights Reserved.</p>
+                <p>&copy; <span id="current-year">2026</span> Aaron Danley. All Rights Reserved.</p>
             </div>
             <div class="col-02">
                 <a class="fade-out" href="../">
@@ -264,7 +264,8 @@
 <script src="../js/aos-min.js"></script>
 <script src="../js/flickity.pkgd.min.js"></script>
 <script>
-    AOS.init();
+  document.getElementById('current-year').textContent = new Date().getFullYear();
+  AOS.init();
 </script>
 
 </body>
