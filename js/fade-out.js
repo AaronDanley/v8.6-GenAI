@@ -45,7 +45,8 @@ function isHistoryNavigationEvent(event) {
 function handleLogoRestore(event) {
     // Replay animation if this is a history navigation or page visibility change
     if (isHistoryNavigationEvent(event)) {
-        window.setTimeout(replayLogoAnimation, 50);
+        // Reload the page to restore all content
+        window.location.reload();
     }
 }
 
