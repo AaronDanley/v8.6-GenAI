@@ -13,21 +13,44 @@ function replayLogoAnimation() {
         return;
     }
 
+    var parentNode = logoContainer.parentNode;
     var replayedLogo = logoContainer.cloneNode(true);
-    logoContainer.parentNode.replaceChild(replayedLogo, logoContainer);
+
+    parentNode.removeChild(logoContainer);
+
+    window.requestAnimationFrame(function () {
+        parentNode.appendChild(replayedLogo);
+    });
 }
 
-window.addEventListener('pageshow', function(e) {
-    if (e.persisted) {
+function isHistoryNavigationEvent(event) {
+    if (event && event.persisted) {
+        return true;
+    }
+
+    if (window.performance && window.performance.getEntriesByType) {
+        var navigationEntries = window.performance.getEntriesByType('navigation');
+
+        if (navigationEntries && navigationEntries.length) {
+            return navigationEntries[0].type === 'back_forward';
+        }
+    }
+
+    return false;
+}
+
+window.addEventListener('pageshow', function (e) {
+    if (isHistoryNavigationEvent(e)) {
         setTimeout(replayLogoAnimation, 0);
     }
 });
 
-$('.fade-out').click(function(e) {
-e.preventDefault();
-newLocation = this.href;
-$('body').fadeOut('slow', newpage);
+$('.fade-out').click(function (e) {
+    e.preventDefault();
+    newLocation = this.href;
+    $('body').fadeOut('slow', newpage);
 });
+
 function newpage() {
-window.location = newLocation;
+    window.location = newLocation;
 }
