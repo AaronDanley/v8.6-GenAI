@@ -16,16 +16,30 @@ function replayLogoAnimation() {
     var parentNode = logoContainer.parentNode;
     var replayedLogo = logoContainer.cloneNode(true);
 
-    parentNode.removeChild(logoContainer);
+    parentNode.replaceChild(replayedLogo, logoContainer);
 
     window.requestAnimationFrame(function () {
-        parentNode.appendChild(replayedLogo);
+        var animatedElements = replayedLogo.querySelectorAll('.logo-one, .logo-two, .logo-three, .logo-fade-out, .large-logo');
+
+        Array.prototype.forEach.call(animatedElements, function (element) {
+            element.style.animation = 'none';
+            element.style.webkitAnimation = 'none';
+            element.offsetHeight;
+            element.style.animation = '';
+            element.style.webkitAnimation = '';
+        });
     });
 }
 
 function isHistoryNavigationEvent(event) {
     if (event && event.persisted) {
         return true;
+    }
+
+    if (window.performance && window.performance.navigation) {
+        if (window.performance.navigation.type === 2) {
+            return true;
+        }
     }
 
     if (window.performance && window.performance.getEntriesByType) {
@@ -39,9 +53,18 @@ function isHistoryNavigationEvent(event) {
     return false;
 }
 
-window.addEventListener('pageshow', function (e) {
-    if (isHistoryNavigationEvent(e)) {
-        setTimeout(replayLogoAnimation, 0);
+function handleLogoRestore(event) {
+    if (isHistoryNavigationEvent(event)) {
+        window.setTimeout(replayLogoAnimation, 50);
+    }
+}
+
+window.addEventListener('pageshow', handleLogoRestore);
+window.addEventListener('popstate', handleLogoRestore);
+
+document.addEventListener('visibilitychange', function () {
+    if (!document.hidden) {
+        handleLogoRestore();
     }
 });
 
