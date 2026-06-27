@@ -9,31 +9,15 @@ function replayLogoAnimation() {
         return;
     }
 
-    // Get all logo elements that need animation restart
-    var logoElements = logoContainer.querySelectorAll('.logo-one, .logo-two, .logo-three, .logo-fade-out');
+    // Clone and replace the entire logo container to restart all animations from scratch
+    var parent = logoContainer.parentNode;
+    var clone = logoContainer.cloneNode(true);
     
-    // Reset all animations by removing and re-adding the animation property
-    Array.prototype.forEach.call(logoElements, function (element) {
-        // Force animation restart by temporarily disabling animations
-        var computedStyle = window.getComputedStyle(element);
-        var animation = computedStyle.animation;
-        
-        element.style.animation = 'none';
-        // Trigger a reflow to ensure the change is applied
-        void element.offsetWidth;
-        
-        // Re-enable animations after a brief delay
-        setTimeout(function () {
-            element.style.animation = '';
-        }, 10);
-    });
+    // Replace the old container with the clone
+    parent.replaceChild(clone, logoContainer);
     
-    // Also restart the container animation
-    logoContainer.style.animation = 'none';
-    void logoContainer.offsetWidth;
-    setTimeout(function () {
-        logoContainer.style.animation = '';
-    }, 10);
+    // Force browser reflow and restart animations
+    void clone.offsetHeight;
 }
 
 function isHistoryNavigationEvent(event) {
