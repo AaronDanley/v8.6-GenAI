@@ -50,32 +50,15 @@ function handleLogoRestore(event) {
     }
 }
 
-// Listen for page visibility changes and history events
-window.addEventListener('pageshow', handleLogoRestore);
-window.addEventListener('popstate', handleLogoRestore);
-
-// Also replay when page becomes visible (catches more cases)
-document.addEventListener('visibilitychange', function () {
-    if (!document.hidden) {
-        window.setTimeout(replayLogoAnimation, 50);
-    }
+// Force page refresh on back button
+window.addEventListener('popstate', function() {
+    window.location.reload();
 });
 
-// Handle page focus as another trigger
-window.addEventListener('focus', function () {
-    // Only if enough time has passed (animation should have completed)
-    if (document.hidden === false) {
-        var logoContainer = document.getElementById('logo-container');
-        if (logoContainer) {
-            var computedStyle = window.getComputedStyle(logoContainer);
-            var opacity = parseFloat(computedStyle.opacity);
-            
-            // If the logo container is already faded out (opacity is 0 or near 0)
-            // it means we need to replay the animation
-            if (opacity < 0.1) {
-                window.setTimeout(replayLogoAnimation, 50);
-            }
-        }
+// Also handle pageshow for browser back/forward navigation
+window.addEventListener('pageshow', function(event) {
+    if (event.persisted) {
+        window.location.reload();
     }
 });
 
